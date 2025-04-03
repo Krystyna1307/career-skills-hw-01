@@ -1,7 +1,7 @@
 import React from "react";
 
 const CatalogPage = () => {
-  return <div>CatalogPage</div>;
+  return <div>Інформація в CatalogPage</div>;
 };
 
 export default CatalogPage;

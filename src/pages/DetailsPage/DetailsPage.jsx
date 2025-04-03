@@ -1,7 +1,7 @@
 import React from "react";
 
 const DetailsPage = () => {
-  return <div>DetailsPage</div>;
+  return <div>Інформація в компоненті Дутаилс Пейж</div>;
 };
 
 export default DetailsPage;
