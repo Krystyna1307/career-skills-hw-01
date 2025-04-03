@@ -1,3 +1,17 @@
-.wrapper {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--badges);
+}
+
+.nav {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  a {
+    color: var(--main);
+    text-decoration: none;
+  }
 }
