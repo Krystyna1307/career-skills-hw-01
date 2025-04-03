@@ -4,11 +4,17 @@ import picture from "../../assets/picture.jpg";
 
 const Home = () => {
   return (
-    <div className={s.wrapper}>
-      <img src={picture} />
-      <h1>Find your perfect rental car</h1>
-      <p>Browse our catalog and choose the best car for your needs.</p>
-      <button>View Catalog</button>
+    <div className={s.hero}>
+      <div className={s.container}>
+        <img className={s.img} src={picture} width="1440" height="700" />
+        <div className={s.position}>
+          <h1 className={s.title}>Find your perfect rental car</h1>
+          <p className={s.text}>
+            Browse our catalog and choose the best car for your needs.
+          </p>
+          <button className={s.btn}>View Catalog</button>
+        </div>
+      </div>
     </div>
   );
 };

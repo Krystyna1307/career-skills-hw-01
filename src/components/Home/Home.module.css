@@ -1,3 +1,44 @@
-.wrapper {
-  background-color: var(--button);
+.hero {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+}
+
+.img {
+  display: block;
+}
+
+.position {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--white);
+}
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  text-align: center;
+  color: var(--white);
+}
+.btn {
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: var(--button);
+}
+
+.btn:hover {
+  background: var(--button-hover);
 }

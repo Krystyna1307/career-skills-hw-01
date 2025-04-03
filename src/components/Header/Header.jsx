@@ -11,13 +11,19 @@ const buildLinkClass = ({ isActive }) => {
 const Header = () => {
   return (
     <header className={s.header}>
-      <a href="/">
-        <img src={logo} alt="Logo" width="104" height="16" />
-      </a>
-      <nav className={s.nav}>
-        <NavLink className={buildLinkClass} to="/">Home</NavLink>
-        <NavLink className={buildLinkClass} to="/catalog">Catalog</NavLink>
-      </nav>
+      <div className={s.container}>
+        <a href="/">
+          <img src={logo} alt="Logo" width="104" height="16" />
+        </a>
+        <nav className={s.nav}>
+          <NavLink className={buildLinkClass} to="/">
+            Home
+          </NavLink>
+          <NavLink className={buildLinkClass} to="/catalog">
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };

@@ -1,8 +1,18 @@
 .header {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   background-color: var(--badges);
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.container {
+  width: 1230px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  background-color: blanchedalmond;
 }
 
 .nav {
