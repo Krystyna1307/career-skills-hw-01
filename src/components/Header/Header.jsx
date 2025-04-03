@@ -1,13 +1,13 @@
 import React from "react";
 import s from "./Header.module.css";
-import logo from "../../assets/logo.svg"; // Імпортуємо SVG
+import logo from "../../assets/logo.svg";
 
 const Header = () => {
   return (
     <header className={s.wrapper}>
       <nav>
         <a href="/">
-          <img src={logo} alt="Logo" width="104" height="16" /> {/* Логотип */}
+          <img src={logo} alt="Logo" width="104" height="16" />
         </a>
         <ul>
           <li>
