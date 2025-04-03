@@ -1,21 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import Catalog from "./Catalog/Catalog";
-import Details from "./Details/Details";
 import Header from "./Header/Header";
-import Home from "./Home/Home";
+import HomePage from "../pages/HomePage/HomePage";
+import CatalogPage from "../pages/CatalogPage/CatalogPage";
+import DetailsPage from "../pages/DetailsPage/DetailsPage";
 
 const App = () => {
   return (
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<h2>Homepage</h2>} />
-        <Route path="/catalog" element={<h2>Catalog</h2>} />
-        <Route path="/catalog/:id" element={<h2>Details</h2>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/:id" element={<DetailsPage />} />
       </Routes>
-      {/* <Home /> */}
-      {/* <Catalog /> */}
-      {/* <Details /> */}
     </div>
   );
 };
