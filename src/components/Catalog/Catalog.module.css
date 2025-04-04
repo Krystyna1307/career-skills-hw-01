@@ -1,32 +1,50 @@
 .container {
-  padding: 20px;
-  text-align: center;
+  width: 1200px;
+  height: 1368px;
 }
 
 .title {
-  font-size: 24px;
-  margin-bottom: 20px;
+  /* font-size: 24px;
+  margin-bottom: 20px; */
 }
 
 .filters {
+  padding-top: 84px;
+  padding-bottom: 56px;
+  width: 924px;
+  height: 68px;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .filters select,
 .filters input {
-  padding: 8px;
+  width: 200px; /* Зробіть відповідно до макета */
+  height: 40px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+
+  border-radius: 12px;
+  width: 204px;
+  height: 44px;
+  background: var(--inputs);
 }
 
 .searchBtn {
-  background: blue;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
 }
 
 .carlist {

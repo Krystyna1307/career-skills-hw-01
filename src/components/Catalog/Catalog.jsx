@@ -10,8 +10,8 @@ const Catalog = () => {
   const [filters, setFilters] = useState({
     brand: "",
     price: "",
-    yearFrom: "",
-    yearTo: "",
+    mileageFrom: "", // Спочатку пусте значення
+    mileageTo: "", // Спочатку пусте значення
   });
 
   // Завантаження брендів
@@ -49,13 +49,35 @@ const Catalog = () => {
       .catch((error) => console.error("Error fetching prices:", error));
   }, []);
 
+  // Завантаження даних згідно пробігу
+  useEffect(() => {
+    axios
+      .get("https://car-rental-api.goit.global/cars")
+      .then((response) => {
+        const mileages = response.data.cars.map((car) => Number(car.mileage));
+
+        if (mileages.length > 0) {
+          const minMileage = Math.min(...mileages);
+          const maxMileage = Math.max(...mileages);
+
+          // НЕ оновлюємо `filters`, поки користувач сам не введе значення
+          setFilters((prevFilters) => ({
+            ...prevFilters,
+            mileageFrom: prevFilters.mileageFrom || "", // Якщо не введено — залишаємо пустим
+            mileageTo: prevFilters.mileageTo || "",
+          }));
+        }
+      })
+      .catch((error) => console.error("Error fetching mileage data:", error));
+  }, []);
+
   // Обробка зміни фільтрів
 
   const handleFilterChange = (e) => {
+    const { name, value } = e.target;
     setFilters({
       ...filters,
-      [e.target.name]:
-        e.target.name === "price" ? Number(e.target.value) : e.target.value,
+      [name]: value,
     });
   };
 
@@ -71,14 +93,14 @@ const Catalog = () => {
             (car) => car.brand === filters.brand
           );
         }
-        if (filters.yearFrom) {
+        if (filters.mileageFrom) {
           filteredCars = filteredCars.filter(
-            (car) => car.year >= Number(filters.yearFrom)
+            (car) => car.mileage >= Number(filters.mileageFrom)
           );
         }
-        if (filters.yearTo) {
+        if (filters.mileageTo) {
           filteredCars = filteredCars.filter(
-            (car) => car.year <= Number(filters.yearTo)
+            (car) => car.mileage <= Number(filters.mileageTo)
           );
         }
         if (filters.price) {
@@ -94,16 +116,15 @@ const Catalog = () => {
 
   return (
     <div className={s.container}>
-      <h3 className={s.title}>Car Catalog</h3>
-
       {/* Форма фільтрів */}
       <div className={s.filters}>
         <select
           name="brand"
           value={filters.brand}
           onChange={handleFilterChange}
+          className={s.input}
         >
-          <option value="">Choose a brand</option>
+          <option value="Choose a brand">Choose a brand</option>
           {brands.map((brand) => (
             <option key={brand} value={brand}>
               {brand}
@@ -115,8 +136,9 @@ const Catalog = () => {
           name="price"
           value={filters.price}
           onChange={handleFilterChange}
+          className={s.input}
         >
-          <option value="">Choose a price</option>
+          <option value="Choose a price">Choose a price</option>
           {prices.map((price) => (
             <option key={price} value={price}>
               {price}
@@ -125,18 +147,21 @@ const Catalog = () => {
         </select>
 
         <input
-          type="number"
-          name="yearFrom"
+          type="text"
+          name="mileageFrom"
           placeholder="From"
-          value={filters.yearFrom}
+          value={filters.mileageFrom || ""}
           onChange={handleFilterChange}
+          className={s.input}
         />
+
         <input
-          type="number"
-          name="yearTo"
+          type="text"
+          name="mileageTo"
           placeholder="To"
-          value={filters.yearTo}
+          value={filters.mileageTo || ""}
           onChange={handleFilterChange}
+          className={s.input}
         />
 
         <button className={s.searchBtn} onClick={handleSearch}>
