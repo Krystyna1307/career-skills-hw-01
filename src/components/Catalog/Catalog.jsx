@@ -40,14 +40,25 @@ const Catalog = ({ filters }) => {
 
   return (
     <div className={s.container}>
-      <div className={s.carlist}>
+      <div className={s.carList}>
         {cars.map((car) => (
-          <div key={car.id} className={s.carcard}>
-            <img src={car.img} alt={car.model} className={s.carimg} />
-            <h2>
-              {car.brand} {car.model}, {car.year}
-            </h2>
-            <p>${car.rentalPrice}</p>
+          <div key={car.id} className={s.carCard}>
+            <img src={car.img} alt={car.model} className={s.carImg} />
+            <div className={s.title}>
+              <div className={s.titleFlex}>
+                <p>{car.brand}&nbsp;</p>
+                <p className={s.currentColor}>{car.model}</p>
+                <p>, {car.year}</p>
+              </div>
+
+              <p>${car.rentalPrice}</p>
+            </div>
+            <div className={s.details}>
+              <p>{car.address}</p>
+              <p>{car.rentalCompany}</p>
+              <p>{car.type}</p>
+              <p>{car.mileage}</p>
+            </div>
             <button className={s.btn}>Read more</button>
           </div>
         ))}

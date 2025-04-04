@@ -21,22 +21,36 @@
   font-size: 16px;
 }
 
-.carlist {
+.carList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.carcard {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.carCard {
+  width: 276px;
+  height: 424px;
+  border-radius: 14px;
 }
 
-.carimg {
+.carImg {
   width: 100%;
   border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.titleFlex {
+  display: flex;
+}
+
+.currentColor {
+  color: var(--button);
 }
 
 .btn {
