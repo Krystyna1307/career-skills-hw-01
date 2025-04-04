@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import s from "./Form.module.css";
+import { HiChevronDown } from "react-icons/hi2";
 
 const Form = ({ onFilterChange }) => {
   const [brands, setBrands] = useState([]);
@@ -42,12 +43,14 @@ const Form = ({ onFilterChange }) => {
     <form className={s.filters}>
       <div className={s.filterGroup}>
         <label className={s.label}>Car brand</label>
+
         <select
           name="brand"
           value={filters.brand}
           onChange={handleFilterChange}
         >
           <option value="">Choose a brand</option>
+
           {brands.map((brand) => (
             <option key={brand} value={brand}>
               {brand}
@@ -55,6 +58,7 @@ const Form = ({ onFilterChange }) => {
           ))}
         </select>
       </div>
+      <HiChevronDown className={s.iconFirst} />
 
       <div className={s.filterGroup}>
         <label className={s.label}>Price / 1 hour</label>
@@ -71,6 +75,7 @@ const Form = ({ onFilterChange }) => {
           ))}
         </select>
       </div>
+      <HiChevronDown className={s.iconSecond} />
 
       <div className={s.filterGroup}>
         <label className={s.label}>Car mileage / km</label>
@@ -83,6 +88,7 @@ const Form = ({ onFilterChange }) => {
               value={filters.mileageFrom}
               onChange={handleFilterChange}
             />
+
             <input
               type="number"
               name="mileageTo"

@@ -79,23 +79,33 @@
 .detailsSecond p:not(:last-child) {
   padding-right: 6px;
   border-right: 1px solid var(--gray-light);
+  margin-bottom: 32px;
 }
 
 .btn {
-  display: block;
-  text-decoration: none;
-  background: blue;
-  color: white;
-  padding: 8px;
-  margin-top: 10px;
-  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
+
+  border-radius: 12px;
+  border: none;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: var(--button);
 }
 
 .loadMore {
-  margin-top: 20px;
-  padding: 10px 15px;
-  border: none;
-  background: blue;
-  color: white;
-  cursor: pointer;
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  background-color: transparent;
 }

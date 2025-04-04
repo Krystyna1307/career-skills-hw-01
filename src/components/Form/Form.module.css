@@ -8,6 +8,7 @@
   gap: 16px;
   align-items: center;
   margin: 0 auto;
+  position: relative;
 }
 
 .filters select,
@@ -34,7 +35,6 @@
   font-size: 16px;
   line-height: 1.25;
   color: inherit;
-  position: relative;
 }
 
 .formInput input:first-child {
@@ -71,4 +71,25 @@
   font-size: 16px;
   line-height: 1.25;
   color: var(--white);
+}
+
+select::-ms-expand {
+  display: none; /* Удаляем ненужную стрелку */
+}
+
+select {
+  appearance: none; /* Для всех современных браузеров */
+  background-color: white; /* Это очень важно */
+}
+
+.iconFirst {
+  position: absolute;
+  top: 85px;
+  left: 170px;
+}
+
+.iconSecond {
+  position: absolute;
+  top: 84px;
+  left: 390px;
 }
