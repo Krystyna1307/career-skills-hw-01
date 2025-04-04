@@ -3,32 +3,6 @@
   height: 1368px;
 }
 
-.title {
-  /* font-size: 24px;
-  margin-bottom: 20px; */
-}
-
-.filters {
-  padding-top: 84px;
-  padding-bottom: 56px;
-  width: 924px;
-  height: 68px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-
-.filters select,
-.filters input {
-  width: 200px; /* Зробіть відповідно до макета */
-  height: 40px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 .input {
   font-weight: 500;
   font-size: 16px;
