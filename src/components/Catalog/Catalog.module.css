@@ -53,6 +53,34 @@
   color: var(--button);
 }
 
+.details {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+}
+
+.detailsFirst {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.detailsFirst p {
+  padding-right: 6px;
+  border-right: 1px solid var(--gray-light);
+}
+
+.detailsSecond {
+  display: flex;
+  gap: 12px;
+}
+
+.detailsSecond p:not(:last-child) {
+  padding-right: 6px;
+  border-right: 1px solid var(--gray-light);
+}
+
 .btn {
   display: block;
   text-decoration: none;

@@ -54,11 +54,15 @@ const Catalog = ({ filters }) => {
               <p>${car.rentalPrice}</p>
             </div>
             <div className={s.details}>
-              <p>{car.address.split(", ")[1]}</p>
-              <p>{car.address.split(", ")[2]}</p>
-              <p>{car.rentalCompany}</p>
-              <p>{car.type}</p>
-              <p>{car.mileage} km</p>
+              <div className={s.detailsFirst}>
+                <p>{car.address.split(", ")[1]}</p>
+                <p>{car.address.split(", ")[2]}</p>
+                <p>{car.rentalCompany}</p>
+              </div>
+              <div className={s.detailsSecond}>
+                <p>{car.type}</p>
+                <p>{car.mileage} km</p>
+              </div>
             </div>
             <button className={s.btn}>Read more</button>
           </div>
