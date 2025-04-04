@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Home.module.css";
 import picture from "../../assets/picture.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
           <p className={s.text}>
             Browse our catalog and choose the best car for your needs.
           </p>
-          <button className={s.btn}>View Catalog</button>
+          <Link to="/catalog" className={s.btn}>
+            View Catalog
+          </Link>
         </div>
       </div>
     </div>

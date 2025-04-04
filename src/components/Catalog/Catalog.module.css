@@ -8,3 +8,45 @@
   margin: 0 auto;
   background-color: blanchedalmond; */
 }
+.carcard {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+}
+
+.svg {
+  background-color: brown;
+  width: 16px;
+  height: 16px;
+  fill: blue;
+  stroke: aquamarine;
+}
+
+.text {
+  background-color: aqua;
+  width: 276px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: var(--button);
+}

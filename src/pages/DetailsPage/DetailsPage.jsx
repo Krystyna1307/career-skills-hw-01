@@ -1,7 +1,12 @@
 import React from "react";
+import Details from "../../components/Details/Details";
 
 const DetailsPage = () => {
-  return <div>Інформація в компоненті Дутаилс Пейж</div>;
+  return (
+    <div>
+      <Details />
+    </div>
+  );
 };
 
 export default DetailsPage;
