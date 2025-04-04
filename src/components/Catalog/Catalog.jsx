@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import s from "./Catalog.module.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import s from "./Catalog.module.css";
 
 const Catalog = () => {
   const [cars, setCars] = useState([]);
+  const [brands, setBrands] = useState([]); // Список брендів
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({
     brand: "",
@@ -13,6 +13,15 @@ const Catalog = () => {
     yearTo: "",
   });
 
+  // Завантаження брендів з API
+  useEffect(() => {
+    axios
+      .get("https://car-rental-api.goit.global/brands")
+      .then((response) => setBrands(response.data))
+      .catch((error) => console.error("Error fetching brands:", error));
+  }, []);
+
+  // Завантаження автомобілів
   useEffect(() => {
     axios
       .get(`https://car-rental-api.goit.global/cars?page=${page}`)
@@ -24,7 +33,7 @@ const Catalog = () => {
       .catch((error) => console.error("Error fetching cars:", error));
   }, [page]);
 
-  // Обробка змін у фільтрах
+  // Обробка зміни фільтрів
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
@@ -41,8 +50,11 @@ const Catalog = () => {
           onChange={handleFilterChange}
         >
           <option value="">Choose a brand</option>
-          <option value="Volvo">Volvo</option>
-          <option value="Subaru">Subaru</option>
+          {brands.map((brand) => (
+            <option key={brand} value={brand}>
+              {brand}
+            </option>
+          ))}
         </select>
 
         <select
@@ -73,7 +85,7 @@ const Catalog = () => {
         <button className={s.searchBtn}>Search</button>
       </div>
 
-      {/* Список автомобілів */}
+      {/* Відображення автомобілів */}
       <div className={s.carlist}>
         {cars.map((car) => (
           <div key={car.id} className={s.carcard}>
@@ -82,9 +94,7 @@ const Catalog = () => {
               {car.brand} {car.model}, {car.year}
             </h2>
             <p>${car.rentalPrice}</p>
-            <Link to={`/catalog/${car.id}`} className={s.btn}>
-              Read more
-            </Link>
+            <button className={s.btn}>Read more</button>
           </div>
         ))}
       </div>
