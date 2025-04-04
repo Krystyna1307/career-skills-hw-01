@@ -54,10 +54,11 @@ const Catalog = ({ filters }) => {
               <p>${car.rentalPrice}</p>
             </div>
             <div className={s.details}>
-              <p>{car.address}</p>
+              <p>{car.address.split(", ")[1]}</p>
+              <p>{car.address.split(", ")[2]}</p>
               <p>{car.rentalCompany}</p>
               <p>{car.type}</p>
-              <p>{car.mileage}</p>
+              <p>{car.mileage} km</p>
             </div>
             <button className={s.btn}>Read more</button>
           </div>
