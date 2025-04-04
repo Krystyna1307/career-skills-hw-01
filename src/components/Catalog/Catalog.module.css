@@ -1,52 +1,67 @@
-.hero {
-}
-
 .container {
-  /* width: 1230px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
-  background-color: blanchedalmond; */
-}
-.carcard {
-  border-radius: 14px;
-  width: 276px;
-  height: 268px;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 20, 23, 0.5) 0%,
-    rgba(18, 20, 23, 0.5) 100%
-  );
+  padding: 20px;
+  text-align: center;
 }
 
-.svg {
-  background-color: brown;
-  width: 16px;
-  height: 16px;
-  fill: blue;
-  stroke: aquamarine;
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.text {
-  background-color: aqua;
-  width: 276px;
-  height: 68px;
+.filters {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.card {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 133%;
-  color: var(--gray);
+.filters select,
+.filters input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.searchBtn {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.carlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.carcard {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carimg {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .btn {
-  border-radius: 12px;
-  padding: 12px 99px;
-  width: 276px;
-  height: 44px;
-  background: var(--button);
+  display: block;
+  text-decoration: none;
+  background: blue;
+  color: white;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.loadMore {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  background: blue;
+  color: white;
+  cursor: pointer;
 }
