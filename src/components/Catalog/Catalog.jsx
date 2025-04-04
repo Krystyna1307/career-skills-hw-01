@@ -40,9 +40,9 @@ const Catalog = () => {
     fetch("https://car-rental-api.goit.global/cars")
       .then((response) => response.json())
       .then((data) => {
-        // Отримуємо всі ціни та залишаємо тільки унікальні
+        // Отримуємо всі унікальні ціни та перетворюємо на числа
         const uniquePrices = [
-          ...new Set(data.cars.map((car) => car.rentalPrice)),
+          ...new Set(data.cars.map((car) => Number(car.rentalPrice))),
         ];
         setPrices(uniquePrices.sort((a, b) => a - b)); // Сортуємо за зростанням
       })
@@ -50,6 +50,7 @@ const Catalog = () => {
   }, []);
 
   // Обробка зміни фільтрів
+
   const handleFilterChange = (e) => {
     setFilters({
       ...filters,
@@ -82,7 +83,7 @@ const Catalog = () => {
         }
         if (filters.price) {
           filteredCars = filteredCars.filter(
-            (car) => car.rentalPrice === filters.price
+            (car) => Number(car.rentalPrice) === filters.price
           );
         }
 
