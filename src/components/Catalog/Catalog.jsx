@@ -4,7 +4,8 @@ import s from "./Catalog.module.css";
 
 const Catalog = () => {
   const [cars, setCars] = useState([]);
-  const [brands, setBrands] = useState([]); // Список брендів
+  const [brands, setBrands] = useState([]);
+  const [prices, setPrices] = useState([]);
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({
     brand: "",
@@ -13,7 +14,7 @@ const Catalog = () => {
     yearTo: "",
   });
 
-  // Завантаження брендів з API
+  // Завантаження брендів
   useEffect(() => {
     axios
       .get("https://car-rental-api.goit.global/brands")
@@ -33,9 +34,61 @@ const Catalog = () => {
       .catch((error) => console.error("Error fetching cars:", error));
   }, [page]);
 
+  // Завантаження згідно ціни аренди
+
+  useEffect(() => {
+    fetch("https://car-rental-api.goit.global/cars")
+      .then((response) => response.json())
+      .then((data) => {
+        // Отримуємо всі ціни та залишаємо тільки унікальні
+        const uniquePrices = [
+          ...new Set(data.cars.map((car) => car.rentalPrice)),
+        ];
+        setPrices(uniquePrices.sort((a, b) => a - b)); // Сортуємо за зростанням
+      })
+      .catch((error) => console.error("Error fetching prices:", error));
+  }, []);
+
   // Обробка зміни фільтрів
   const handleFilterChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
+    setFilters({
+      ...filters,
+      [e.target.name]:
+        e.target.name === "price" ? Number(e.target.value) : e.target.value,
+    });
+  };
+
+  // Фільтрація автомобілів
+  const handleSearch = () => {
+    axios
+      .get("https://car-rental-api.goit.global/cars")
+      .then((response) => {
+        let filteredCars = response.data.cars;
+
+        if (filters.brand) {
+          filteredCars = filteredCars.filter(
+            (car) => car.brand === filters.brand
+          );
+        }
+        if (filters.yearFrom) {
+          filteredCars = filteredCars.filter(
+            (car) => car.year >= Number(filters.yearFrom)
+          );
+        }
+        if (filters.yearTo) {
+          filteredCars = filteredCars.filter(
+            (car) => car.year <= Number(filters.yearTo)
+          );
+        }
+        if (filters.price) {
+          filteredCars = filteredCars.filter(
+            (car) => car.rentalPrice === filters.price
+          );
+        }
+
+        setCars(filteredCars);
+      })
+      .catch((error) => console.error("Error fetching filtered cars:", error));
   };
 
   return (
@@ -63,8 +116,11 @@ const Catalog = () => {
           onChange={handleFilterChange}
         >
           <option value="">Choose a price</option>
-          <option value="low">Low to High</option>
-          <option value="high">High to Low</option>
+          {prices.map((price) => (
+            <option key={price} value={price}>
+              {price}
+            </option>
+          ))}
         </select>
 
         <input
@@ -82,7 +138,9 @@ const Catalog = () => {
           onChange={handleFilterChange}
         />
 
-        <button className={s.searchBtn}>Search</button>
+        <button className={s.searchBtn} onClick={handleSearch}>
+          Search
+        </button>
       </div>
 
       {/* Відображення автомобілів */}
