@@ -1,6 +1,7 @@
 .filters {
   padding-top: 84px;
-  padding-bottom: 56px;
+  padding-bottom: 108px;
+
   width: 924px;
   height: 68px;
 
@@ -9,6 +10,19 @@
   align-items: center;
   margin: 0 auto;
   position: relative;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--gray);
+  padding-bottom: 8px;
 }
 
 .filters select,
@@ -22,17 +36,17 @@
   background: var(--inputs);
 }
 
-.filterGroup {
-  display: flex;
-  flex-direction: column;
-}
-
 .formInput {
   display: flex;
   flex: 1;
   background: var(--inputs);
   border-radius: 12px;
   overflow: hidden;
+  /* color: inherit; */
+}
+
+::placeholder {
+  color: var(--main);
 }
 
 .formInput input {
@@ -59,20 +73,13 @@
   flex-wrap: nowrap; /* щоб не переносились */
 }
 
-.label {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.33;
-  color: var(--gray);
-  padding-bottom: 8px;
-}
-
 .searchBtn {
   width: 156px;
   height: 44px;
   border: none;
   background: var(--button);
   border-radius: 12px;
+
   font-size: 16px;
   font-weight: 600;
   color: var(--white);
