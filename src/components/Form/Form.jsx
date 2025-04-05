@@ -76,7 +76,7 @@ const Form = ({ onFilterChange }) => {
           ))}
         </select>
       </div>
-      <HiChevronDown className={s.iconFirst} />
+      <HiChevronDown className={s.selectIcon} />
 
       <div className={s.filterGroup}>
         <label className={s.label}>Price / 1 hour</label>
@@ -99,21 +99,25 @@ const Form = ({ onFilterChange }) => {
         <label className={s.label}>Car mileage / km</label>
         <div className={s.btnInputGroup}>
           <div className={s.formInput}>
-            <input
-              type="text"
-              name="mileageFrom"
-              placeholder="From"
-              value={formatNumber(filters.mileageFrom)}
-              onChange={(e) => handleMileageChange(e, "mileageFrom")}
-            />
+            <label className={s.mileageLabel}>
+              <span className={s.mileagePrefix}>From</span>
+              <input
+                type="text"
+                name="mileageFrom"
+                value={formatNumber(filters.mileageFrom)}
+                onChange={(e) => handleMileageChange(e, "mileageFrom")}
+              />
+            </label>
 
-            <input
-              type="text"
-              name="mileageTo"
-              placeholder="To"
-              value={formatNumber(filters.mileageTo)}
-              onChange={(e) => handleMileageChange(e, "mileageTo")}
-            />
+            <label className={s.mileageLabel}>
+              <span className={s.mileagePrefix}>To</span>
+              <input
+                type="text"
+                name="mileageTo"
+                value={formatNumber(filters.mileageTo)}
+                onChange={(e) => handleMileageChange(e, "mileageTo")}
+              />
+            </label>
           </div>
 
           <button type="submit" className={s.searchBtn}>
