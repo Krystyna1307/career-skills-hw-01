@@ -39,6 +39,24 @@ const Form = ({ onFilterChange }) => {
     onFilterChange(newFilters);
   };
 
+  const formatNumber = (value) => {
+    if (!value) return "";
+    return new Intl.NumberFormat("en-US").format(Number(value));
+  };
+
+  const handleMileageChange = (e, field) => {
+    const rawValue = e.target.value.replace(/,/g, "");
+
+    // Перевіряємо, щоб було тільки число
+    if (!/^\d*$/.test(rawValue)) return;
+
+    if (e.target.value.length >= 5) return;
+
+    const newFilters = { ...filters, [field]: rawValue };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
   return (
     <form className={s.filters}>
       <div className={s.filterGroup}>
@@ -82,23 +100,25 @@ const Form = ({ onFilterChange }) => {
         <div className={s.btnInputGroup}>
           <div className={s.formInput}>
             <input
-              type="number"
+              type="text"
               name="mileageFrom"
               placeholder="From"
-              value={filters.mileageFrom}
-              onChange={handleFilterChange}
+              value={formatNumber(filters.mileageFrom)}
+              onChange={(e) => handleMileageChange(e, "mileageFrom")}
             />
 
             <input
-              type="number"
+              type="text"
               name="mileageTo"
               placeholder="To"
-              value={filters.mileageTo}
-              onChange={handleFilterChange}
+              value={formatNumber(filters.mileageTo)}
+              onChange={(e) => handleMileageChange(e, "mileageTo")}
             />
           </div>
 
-          <button className={s.searchBtn}>Search</button>
+          <button type="submit" className={s.searchBtn}>
+            Search
+          </button>
         </div>
       </div>
     </form>

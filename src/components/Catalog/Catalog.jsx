@@ -64,7 +64,9 @@ const Catalog = ({ filters }) => {
                 <p>{car.mileage} km</p>
               </div>
             </div>
-            <button className={s.btn}>Read more</button>
+            <button type="submit" className={s.btn}>
+              Read more
+            </button>
           </div>
         ))}
       </div>
