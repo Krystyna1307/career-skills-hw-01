@@ -13,7 +13,7 @@ const Home = () => {
           <p className={s.text}>
             Browse our catalog and choose the best car for your needs.
           </p>
-          <Link to="/catalog" className={s.btn}>
+          <Link to="/catalog" className={s.link}>
             View Catalog
           </Link>
         </div>
