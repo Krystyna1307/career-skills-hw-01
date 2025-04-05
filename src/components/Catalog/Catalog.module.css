@@ -112,4 +112,6 @@
   line-height: 1.25;
   color: var(--main);
   background-color: transparent;
+  display: block;
+  margin: 0 auto;
 }
