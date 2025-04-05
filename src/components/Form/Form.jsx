@@ -59,47 +59,52 @@ const Form = ({ onFilterChange }) => {
 
   return (
     <form className={s.filters}>
-      <div className={s.filterGroup}>
-        <label className={s.label}>Car brand</label>
+      <div className={s.wrapperForSvgFirst}>
+        <div className={s.filterGroup}>
+          <label className={s.label}>Car brand</label>
 
-        <select
-          name="brand"
-          value={filters.brand}
-          onChange={handleFilterChange}
-        >
-          <option value="">Choose a brand</option>
-
-          {brands.map((brand) => (
-            <option key={brand} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
+          <select
+            name="brand"
+            value={filters.brand}
+            onChange={handleFilterChange}
+            className={s.firstChildInput}
+          >
+            <option value="">Choose a brand</option>
+            {brands.map((brand) => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+        </div>
+        <HiChevronDown className={s.selectIcon} />
       </div>
-      <HiChevronDown className={s.selectIcon} />
 
-      <div className={s.filterGroup}>
-        <label className={s.label}>Price / 1 hour</label>
-        <select
-          name="price"
-          value={filters.price}
-          onChange={handleFilterChange}
-        >
-          <option value="">Choose a price</option>
-          {prices.map((price) => (
-            <option key={price} value={price}>
-              {price}
-            </option>
-          ))}
-        </select>
+      <div className={s.wrapperForSvgSecond}>
+        <div className={s.filterGroup}>
+          <label className={s.label}>Price / 1 hour</label>
+          <select
+            name="price"
+            value={filters.price}
+            onChange={handleFilterChange}
+            className={s.secondChildInput}
+          >
+            <option value="">Choose a price</option>
+            {prices.map((price) => (
+              <option key={price} value={price}>
+                {price}
+              </option>
+            ))}
+          </select>
+        </div>
+        <HiChevronDown className={s.selectIcon} />
       </div>
-      <HiChevronDown className={s.iconSecond} />
 
-      <div className={s.filterGroup}>
+      <div className={s.filterGroupFirst}>
         <label className={s.label}>Car mileage / km</label>
-        <div className={s.btnInputGroup}>
-          <div className={s.formInput}>
-            <label className={s.mileageLabel}>
+        <div className={s.formInput}>
+          <div className={s.mileageLabelFirst}>
+            <label className={s.mileageLabelFrom}>
               <span className={s.mileagePrefix}>From</span>
               <input
                 type="text"
@@ -108,22 +113,27 @@ const Form = ({ onFilterChange }) => {
                 onChange={(e) => handleMileageChange(e, "mileageFrom")}
               />
             </label>
+          </div>
 
-            <label className={s.mileageLabel}>
+          <div className={s.mileageLabelSecond}>
+            <label className={s.mileageLabelTo}>
               <span className={s.mileagePrefix}>To</span>
               <input
                 type="text"
                 name="mileageTo"
                 value={formatNumber(filters.mileageTo)}
                 onChange={(e) => handleMileageChange(e, "mileageTo")}
+                className={s.secondToInput}
               />
             </label>
           </div>
-
-          <button type="submit" className={s.searchBtn}>
-            Search
-          </button>
         </div>
+      </div>
+
+      <div className={s.filterGroupSecond}>
+        <button type="submit" className={s.searchBtn}>
+          Search
+        </button>
       </div>
     </form>
   );
