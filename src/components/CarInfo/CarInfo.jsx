@@ -4,24 +4,18 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { BsCalendar2Week, BsCarFront, BsFuelPump } from "react-icons/bs";
 import { GoGear } from "react-icons/go";
 
-const CarInfo = () => {
+const CarInfo = ({ car }) => {
   return (
     <div className={s.wrapper}>
       {/* Rental Conditions */}
       <section className={s.section}>
         <h3 className={s.title}>Rental Conditions:</h3>
         <ul>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Minimum age : 25
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Security deposit
-            required
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Valid driver's
-            license
-          </li>
+          {car.rentalConditions.map((condition, index) => (
+            <li key={index}>
+              <IoIosCheckmarkCircleOutline className={s.icon} /> {condition}
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -48,26 +42,18 @@ const CarInfo = () => {
       <section className={s.section}>
         <h3 className={s.title}>Accessories and functionalities:</h3>
         <ul>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Leather seats
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Panoramic sunroof
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Remote start
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Blind-spot
-            monitoring
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Power liftgate
-          </li>
-          <li>
-            <IoIosCheckmarkCircleOutline className={s.icon} /> Premium audio
-            system
-          </li>
+          {car.accessories.map((condition, index) => (
+            <li key={index}>
+              <IoIosCheckmarkCircleOutline className={s.icon} /> {condition}
+            </li>
+          ))}
+        </ul>
+        <ul>
+          {car.functionalities.map((condition, index) => (
+            <li key={index}>
+              <IoIosCheckmarkCircleOutline className={s.icon} /> {condition}
+            </li>
+          ))}
         </ul>
       </section>
     </div>

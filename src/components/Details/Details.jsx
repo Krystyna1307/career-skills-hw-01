@@ -29,7 +29,7 @@ const Details = () => {
 
       <BookingForm details={setCar} />
       <BookingDetails car={car} />
-      <CarInfo />
+      <CarInfo car={car} />
     </div>
   );
 };
