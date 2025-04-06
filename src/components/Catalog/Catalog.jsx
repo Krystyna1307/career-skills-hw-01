@@ -2,10 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import s from "./Catalog.module.css";
 import { Link } from "react-router-dom";
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 
 const Catalog = ({ filters }) => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
+
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
     axios
@@ -39,12 +45,33 @@ const Catalog = ({ filters }) => {
       .catch((error) => console.error("Error fetching cars:", error));
   }, [filters, page]);
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
+    );
+  };
+
   return (
     <div className={s.container}>
       <div className={s.carList}>
         {cars.map((car) => (
           <div key={car.id} className={s.carCard}>
             <img src={car.img} alt={car.model} className={s.carImg} />
+
+            <div
+              className={s.favoriteIcon}
+              onClick={() => toggleFavorite(car.id)}
+            >
+              {favorites.includes(car.id) ? (
+                <IoMdHeart className={s.iconHeartActive} />
+              ) : (
+                <IoMdHeartEmpty className={s.iconHeart} />
+              )}
+            </div>
             <div className={s.title}>
               <div className={s.titleFlex}>
                 <p>{car.brand}&nbsp;</p>
@@ -65,6 +92,7 @@ const Catalog = ({ filters }) => {
                 <p>{car.mileage} km</p>
               </div>
             </div>
+
             <Link to={`/catalog/${car.id}`} className={s.btn}>
               Read more
             </Link>
