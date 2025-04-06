@@ -65,7 +65,7 @@ const Catalog = ({ filters }) => {
                 <p>{car.mileage} km</p>
               </div>
             </div>
-            <Link to="/catalog/:id" className={s.btn}>
+            <Link to={`/catalog/${car.id}`} className={s.btn}>
               Read more
             </Link>
           </div>

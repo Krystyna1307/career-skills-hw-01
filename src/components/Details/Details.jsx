@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./Details.module.css";
+import Booking from "../Booking/Booking";
+import BookingDetails from "../BookingDetails/BookingDetails";
+import CarInfo from "../CarInfo/CarInfo";
 
 const Details = () => {
   const { id } = useParams();
@@ -19,15 +22,13 @@ const Details = () => {
 
   return (
     <div className={s.details}>
-      <h1>
-        {car.brand} {car.name}
-      </h1>
-      <img src={car.img} alt={car.name} />
-      <p>{car.description}</p>
-      <p>
-        <strong>Price:</strong>${car.rentalPrice}/day
-      </p>
-      <button className={s.btn}>Book Now</button>
+      <div className={s.carImg}>
+        <img src={car.img} alt={car.name} className={s.img} />
+      </div>
+
+      <Booking details={setCar} />
+      <BookingDetails car={car} />
+      <CarInfo />
     </div>
   );
 };

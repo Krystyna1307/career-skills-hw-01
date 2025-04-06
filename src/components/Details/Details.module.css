@@ -1,0 +1,14 @@
+.carImg {
+  width: 640px;
+  height: 512px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: blueviolet;
+}
+
+.detailsCar {
+  width: 488px;
+  height: 180px;
+  background-color: blanchedalmond;
+}
