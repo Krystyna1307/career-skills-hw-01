@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./Details.module.css";
-import Booking from "../Booking/Booking";
+
 import BookingDetails from "../BookingDetails/BookingDetails";
 import CarInfo from "../CarInfo/CarInfo";
+import BookingForm from "../BookingForm/BookingForm";
 
 const Details = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const Details = () => {
         <img src={car.img} alt={car.name} className={s.img} />
       </div>
 
-      <Booking details={setCar} />
+      <BookingForm details={setCar} />
       <BookingDetails car={car} />
       <CarInfo />
     </div>
