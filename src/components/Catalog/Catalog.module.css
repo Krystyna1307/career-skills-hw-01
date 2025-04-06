@@ -127,31 +127,11 @@
   border: 1px solid var(--button-hover);
 }
 
-/* .iconHeart {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: #121417;
-  cursor: pointer;
-  transition: fill 0.3s;
-}  */
-
-/* .iconHeart {
-  fill: var(--badges);
-  position: absolute;
-  top: 14px;
-  right: 14px;
-}
-
-.iconHeart.active {
-  fill: var(--button);
-} */
-
 .iconHeart {
   position: absolute;
   top: 14px;
   right: 14px;
-  color: var(--badges); /* Сіреньке */
+  color: var(--badges);
   font-size: 24px;
   cursor: pointer;
 }
@@ -160,7 +140,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  color: var(--button); /* Синє або яке там твоє активне */
+  color: var(--button);
   font-size: 24px;
   cursor: pointer;
 }
