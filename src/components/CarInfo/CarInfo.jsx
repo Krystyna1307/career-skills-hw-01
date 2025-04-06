@@ -23,18 +23,32 @@ const CarInfo = ({ car }) => {
       <section className={s.section}>
         <h3 className={s.title}>Car Specifications:</h3>
         <ul>
-          <li>
-            <BsCalendar2Week className={s.icon} /> Year: 2008
-          </li>
-          <li>
-            <BsCarFront className={s.icon} /> Type: Suv
-          </li>
-          <li>
-            <BsFuelPump className={s.icon} /> Fuel Consumption: 10.5
-          </li>
-          <li>
-            <GoGear className={s.icon} /> Engine Size: 3.6L V6
-          </li>
+          {[
+            {
+              icon: <BsCalendar2Week className={s.icon} />,
+              label: "Year",
+              value: car.year,
+            },
+            {
+              icon: <BsCarFront className={s.icon} />,
+              label: "Type",
+              value: car.type,
+            },
+            {
+              icon: <BsFuelPump className={s.icon} />,
+              label: "Fuel Consumption",
+              value: car.fuelConsumption,
+            },
+            {
+              icon: <GoGear className={s.icon} />,
+              label: "Engine Size",
+              value: car.engineSize,
+            },
+          ].map((item, index) => (
+            <li key={index}>
+              {item.icon} {item.label}: {item.value}
+            </li>
+          ))}
         </ul>
       </section>
 
