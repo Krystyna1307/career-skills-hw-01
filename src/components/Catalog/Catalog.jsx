@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import s from "./Catalog.module.css";
+import { Link } from "react-router-dom";
 
 const Catalog = ({ filters }) => {
   const [cars, setCars] = useState([]);
@@ -64,9 +65,9 @@ const Catalog = ({ filters }) => {
                 <p>{car.mileage} km</p>
               </div>
             </div>
-            <button type="submit" className={s.btn}>
+            <Link to="/catalog/:id" className={s.btn}>
               Read more
-            </button>
+            </Link>
           </div>
         ))}
       </div>
