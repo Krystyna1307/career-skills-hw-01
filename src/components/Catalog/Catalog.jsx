@@ -71,6 +71,9 @@ const Catalog = ({ filters }) => {
           </div>
         ))}
       </div>
+      <svg className={s.iconHeart}>
+        <use href="../../assets/icons.svg#icon-heart"></use>
+      </svg>
       <button onClick={() => setPage(page + 1)} className={s.loadMore}>
         Load more
       </button>

@@ -86,6 +86,12 @@
   margin-bottom: 32px;
 }
 
+.iconHeart {
+  background-color: var(--button);
+  width: 16px;
+  height: 16px;
+}
+
 .btn {
   font-weight: 600;
   font-size: 16px;

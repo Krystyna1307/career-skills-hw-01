@@ -15,9 +15,9 @@ const BookingDetails = ({ car }) => {
           </p>
         </div>
         <div className={s.address}>
-          <GrLocation width={11.25} height={15} />
-          <p>{car.address.split(", ")[1]}</p>
-          <p>{car.address.split(", ")[2]}</p>
+          <GrLocation className={s.icon} />
+          <p>{car.address.split(", ")[1]}, </p>
+          <p className={s.country}>{car.address.split(", ")[2]}</p>
           <p>Mileage: {car.mileage} km</p>
         </div>
         <div className={s.rentalPrice}>

@@ -30,7 +30,7 @@ const DetailsPage = () => {
           <BookingForm details={setCar} />
         </div>
         <div className={s.right}>
-          <BookingDetails car={car} />
+          <BookingDetails car={car} className={s.bookingDetails} />
           <CarInfo car={car} />
         </div>
       </div>
