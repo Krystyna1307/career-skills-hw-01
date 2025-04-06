@@ -16,7 +16,7 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Тут можна зробити запит до API, якщо потрібно
+
     console.log("Form submitted:", formData);
     setSuccess(true);
     setFormData({ name: "", email: "", date: "", comment: "" });
@@ -58,7 +58,9 @@ const BookingForm = () => {
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Send</button>
+      <button type="submit" className={s.sendBtn}>
+        Send
+      </button>
       {success && <p className={s.success}>✅ Car successfully booked!</p>}
     </form>
   );

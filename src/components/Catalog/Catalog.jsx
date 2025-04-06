@@ -61,7 +61,6 @@ const Catalog = ({ filters }) => {
         {cars.map((car) => (
           <div key={car.id} className={s.carCard}>
             <img src={car.img} alt={car.model} className={s.carImg} />
-
             <div
               className={s.favoriteIcon}
               onClick={() => toggleFavorite(car.id)}
