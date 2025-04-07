@@ -1,12 +1,49 @@
-# React + Vite
+🚗 RentalCar – Сервіс оренди автомобілів
+🔍 Опис проєкту
+RentalCar – це фронтенд веб-додаток для компанії, яка надає послуги оренди автомобілів. Користувачі можуть переглядати каталог авто, фільтрувати транспортні засоби за різними параметрами, додавати автомобілі до обраного, переглядати деталі автомобіля та оформлювати запит на оренду.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проєкт створений у рамках тестового завдання.
 
-Currently, two official plugins are available:
+🌐 Демо
+🌍 Live demo: [Посилання на розгорнутий сайт на Vercel/Netlify]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+💻 GitHub репозиторій: [Посилання на GitHub]
 
-## Expanding the ESLint configuration
+⚙️ Технології
+React + Vite
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Redux Toolkit – для глобального стану
+
+React Router DOM – для маршрутизації
+
+Axios – для HTTP-запитів
+
+CSS / styled-components / MUI – (вкажіть, що саме ви використали)
+
+Бекенд API: https://car-rental-api.goit.global/api-docs/
+
+📄 Основні функції
+Домашня сторінка з банером і кнопкою переходу до каталогу
+
+Каталог автомобілів з:
+
+Пошуком і фільтрацією (бренд, ціна, пробіг)
+
+Додаванням авто до обраного (збереження в localStorage)
+
+Пагінацією з кнопкою "Load More"
+
+Сторінка окремого автомобіля:
+
+Детальна інформація
+
+Форма запиту на оренду з нотифікацією про успіх
+
+Всі маршрути реалізовані через React Router
+
+Loader при завантаженні даних
+
+👨‍💻 Автор
+[Кристина Затюлєпіна]
+GitHub: [https://github.com/Krystyna1307/career-skills-hw-01]
+Email: [krystyna.zatiuliepina@gmail.com]
