@@ -2,11 +2,11 @@
   background-color: var(--badges);
   padding-top: 26px;
   padding-bottom: 26px;
-  width: 100%;
+  width: 100%; /* Додаємо для впевненості */
 }
 
 .container {
-  width: 1230px;
+  max-width: 1230px; /* замість width */
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;

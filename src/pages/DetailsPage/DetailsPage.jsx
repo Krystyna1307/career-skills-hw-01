@@ -7,7 +7,6 @@ import ImageDetailsCar from "../../components/ImageDetailsCar/ImageDetailsCar";
 import BookingDetails from "../../components/BookingDetails/BookingDetails";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import CarInfo from "../../components/CarInfo/CarInfo";
-import Header from "../../components/Header/Header";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -25,7 +24,6 @@ const DetailsPage = () => {
 
   return (
     <div>
-      <Header />
       <div className={s.container}>
         <div className={s.topSection}>
           <div className={s.left}>
