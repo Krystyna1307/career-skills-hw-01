@@ -16,10 +16,10 @@ const Header = () => {
           <img src={logo} alt="Logo" width="104" height="16" />
         </Link>
         <nav className={s.nav}>
-          <NavLink className={buildLinkClass} to="/">
+          <NavLink to="/" end className={buildLinkClass}>
             Home
           </NavLink>
-          <NavLink className={buildLinkClass} to="/catalog">
+          <NavLink to="/catalog" className={buildLinkClass}>
             Catalog
           </NavLink>
         </nav>

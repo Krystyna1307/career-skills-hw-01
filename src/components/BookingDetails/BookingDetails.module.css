@@ -1,6 +1,7 @@
 .detailsCar {
   width: 488px;
   height: 180px;
+  margin: 0 auto;
 }
 
 .titleWrapper {

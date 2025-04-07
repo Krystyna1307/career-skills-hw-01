@@ -9,7 +9,7 @@ import NotFound from "../pages/NotFound/NotFound";
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       <div className={s.main}>
         <Routes>

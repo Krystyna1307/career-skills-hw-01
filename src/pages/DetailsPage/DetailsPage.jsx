@@ -7,6 +7,7 @@ import ImageDetailsCar from "../../components/ImageDetailsCar/ImageDetailsCar";
 import BookingDetails from "../../components/BookingDetails/BookingDetails";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import CarInfo from "../../components/CarInfo/CarInfo";
+import Header from "../../components/Header/Header";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -23,15 +24,18 @@ const DetailsPage = () => {
   if (!car) return <p>Loading...</p>;
 
   return (
-    <div className={s.container}>
-      <div className={s.topSection}>
-        <div className={s.left}>
-          <ImageDetailsCar car={car} />
-          <BookingForm details={setCar} />
-        </div>
-        <div className={s.right}>
-          <BookingDetails car={car} className={s.bookingDetails} />
-          <CarInfo car={car} />
+    <div>
+      <Header />
+      <div className={s.container}>
+        <div className={s.topSection}>
+          <div className={s.left}>
+            <ImageDetailsCar car={car} />
+            <BookingForm details={setCar} />
+          </div>
+          <div className={s.right}>
+            <BookingDetails car={car} className={s.bookingDetails} />
+            <CarInfo car={car} />
+          </div>
         </div>
       </div>
     </div>
