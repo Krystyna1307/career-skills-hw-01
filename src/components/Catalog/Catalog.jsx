@@ -108,7 +108,10 @@ const Catalog = ({ filters }) => {
                   </div>
                   <div className={s.detailsSecond}>
                     <p>{car.type}</p>
-                    <p>{car.mileage} km</p>
+                    <p>
+                      {car.mileage.toLocaleString("en-US").replace(/,/g, " ")}{" "}
+                      km
+                    </p>
                   </div>
                 </div>
 

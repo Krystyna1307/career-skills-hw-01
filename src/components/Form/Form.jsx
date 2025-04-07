@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import s from "./Form.module.css";
 import { HiChevronDown } from "react-icons/hi2";
 import { fetchCars, fetchBrands } from "../../services/api";
@@ -15,16 +14,16 @@ const Form = ({ onFilterChange }) => {
   });
 
   useEffect(() => {
-    const fetchBrands = async () => {
+    const getBrands = async () => {
       try {
-        const response = await axios.get("/brands");
-        setBrands(response.data);
+        const data = await fetchBrands();
+        setBrands(data);
       } catch (error) {
         console.error("Error fetching brands:", error);
       }
     };
 
-    fetchBrands();
+    getBrands();
   }, []);
 
   useEffect(() => {
