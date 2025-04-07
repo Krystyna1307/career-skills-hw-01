@@ -7,6 +7,7 @@ import ImageDetailsCar from "../../components/ImageDetailsCar/ImageDetailsCar";
 import BookingDetails from "../../components/BookingDetails/BookingDetails";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import CarInfo from "../../components/CarInfo/CarInfo";
+import Loader from "../../components/Loader/Loader";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const DetailsPage = () => {
     getData();
   }, [id]);
 
-  if (!car) return <p>Loading...</p>;
+  if (!car) return <Loader />;
 
   return (
     <div>
