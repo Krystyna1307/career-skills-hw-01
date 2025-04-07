@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import s from "./Catalog.module.css";
+import { fetchCarsByPage } from "../../services/api";
 import { Link } from "react-router-dom";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 
@@ -14,10 +15,11 @@ const Catalog = ({ filters }) => {
   });
 
   useEffect(() => {
-    axios
-      .get(`https://car-rental-api.goit.global/cars?page=${page}`)
-      .then((response) => {
-        let filteredCars = response.data.cars;
+    const fetchFilteredCars = async () => {
+      try {
+        const carsFromApi = await fetchCarsByPage(page);
+
+        let filteredCars = carsFromApi;
 
         if (filters.brand) {
           filteredCars = filteredCars.filter(
@@ -41,9 +43,45 @@ const Catalog = ({ filters }) => {
         }
 
         setCars(filteredCars);
-      })
-      .catch((error) => console.error("Error fetching cars:", error));
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      }
+    };
+
+    fetchFilteredCars();
   }, [filters, page]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://car-rental-api.goit.global/cars?page=${page}`)
+  //     .then((response) => {
+  //       let filteredCars = response.data.cars;
+
+  //       if (filters.brand) {
+  //         filteredCars = filteredCars.filter(
+  //           (car) => car.brand === filters.brand
+  //         );
+  //       }
+  //       if (filters.mileageFrom) {
+  //         filteredCars = filteredCars.filter(
+  //           (car) => car.mileage >= Number(filters.mileageFrom)
+  //         );
+  //       }
+  //       if (filters.mileageTo) {
+  //         filteredCars = filteredCars.filter(
+  //           (car) => car.mileage <= Number(filters.mileageTo)
+  //         );
+  //       }
+  //       if (filters.price) {
+  //         filteredCars = filteredCars.filter(
+  //           (car) => Number(car.rentalPrice) === Number(filters.price)
+  //         );
+  //       }
+
+  //       setCars(filteredCars);
+  //     })
+  //     .catch((error) => console.error("Error fetching cars:", error));
+  // }, [filters, page]);
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -98,9 +136,7 @@ const Catalog = ({ filters }) => {
           </div>
         ))}
       </div>
-      <svg className={s.iconHeart}>
-        <use href="../../assets/icons.svg#icon-heart"></use>
-      </svg>
+
       <button onClick={() => setPage(page + 1)} className={s.loadMore}>
         Load more
       </button>

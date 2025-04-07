@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import s from "./DetailsPage.module.css";
+import { fetchCarsById } from "../../services/api";
 
 import ImageDetailsCar from "../../components/ImageDetailsCar/ImageDetailsCar";
 import BookingDetails from "../../components/BookingDetails/BookingDetails";
@@ -12,12 +13,20 @@ const DetailsPage = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://car-rental-api.goit.global/cars/${id}`)
+  //     .then((response) => {
+  //       setCar(response.data);
+  //     });
+  // }, [id]);
+
   useEffect(() => {
-    axios
-      .get(`https://car-rental-api.goit.global/cars/${id}`)
-      .then((response) => {
-        setCar(response.data);
-      });
+    const getData = async () => {
+      const data = await fetchCarsById(id);
+      setCar(data);
+    };
+    getData();
   }, [id]);
 
   if (!car) return <p>Loading...</p>;
