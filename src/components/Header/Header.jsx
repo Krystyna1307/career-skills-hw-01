@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Header.module.css";
 import logo from "../../assets/logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import clsx from "clsx";
 
 const buildLinkClass = ({ isActive }) => {
@@ -12,9 +12,9 @@ const Header = () => {
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="Logo" width="104" height="16" />
-        </a>
+        </Link>
         <nav className={s.nav}>
           <NavLink className={buildLinkClass} to="/">
             Home
