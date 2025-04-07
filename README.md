@@ -5,9 +5,9 @@ RentalCar – це фронтенд веб-додаток для компані�
 Проєкт створений у рамках тестового завдання.
 
 🌐 Демо
-🌍 Live demo: [Посилання на розгорнутий сайт на Vercel/Netlify]
+🌍 Live demo: [https://career-skills-hw-01.vercel.app/]
 
-💻 GitHub репозиторій: [Посилання на GitHub]
+💻 GitHub репозиторій: [https://github.com/Krystyna1307/career-skills-hw-01]
 
 ⚙️ Технології
 React + Vite
@@ -45,5 +45,5 @@ Loader при завантаженні даних
 
 👨‍💻 Автор
 [Кристина Затюлєпіна]
-GitHub: [https://github.com/Krystyna1307/career-skills-hw-01]
+GitHub: [https://github.com/Krystyna1307]
 Email: [krystyna.zatiuliepina@gmail.com]
