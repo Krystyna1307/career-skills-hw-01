@@ -18,7 +18,7 @@ React Router DOM – для маршрутизації
 
 Axios – для HTTP-запитів
 
-CSS / styled-components / MUI – (вкажіть, що саме ви використали)
+CSS Modules - для стилізації
 
 Бекенд API: https://car-rental-api.goit.global/api-docs/
 
